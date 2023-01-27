@@ -1,4 +1,4 @@
-// UTK mechanical engineering senior design project
+# UTK mechanical engineering senior design project
 
 Task: Design and create a one-plane swing trainer to help instruct new golfers to learn
 & feel the "one-plane swing"
