@@ -21,4 +21,3 @@ Chilo Espinoza
 
 Will Buziak
 
-Repo managed by: Will Buziak
