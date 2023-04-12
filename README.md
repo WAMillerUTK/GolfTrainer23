@@ -7,6 +7,12 @@ Implementation: The team has elected to design their own weight distribution sen
 
 The 'User' will be the Pro giving the lesson and is intended to be used as a tool to shed light on undesirable habits in beginner golfers.
 
+The raspberry pi interface runs off the hx711 amplifier and accompanied software for use with the raspberry pi that can be downloaded [here](https://github.com/tatobari/hx711py) or by cloning the repository
+
+```
+git clone https://github.com/tatobari/hx711py
+```
+
 ## Advisor
 
 Dr. William Miller
