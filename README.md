@@ -35,17 +35,16 @@ Chilo Espinoza
 
 ## HX711 for Raspberry Py
 ----
-This repository was forked from [Tatobari's](https://github.com/tatobari) [HX711 repo](https://github.com/tatobari/hx711py). The following is quoted from that repository's README.md with slight changes to reflect how it works within this fork. 
 
-----
-Quick code credited to [underdoeg](https://github.com/underdoeg/)'s [Gist HX711.py](https://gist.github.com/underdoeg/98a38b54f889fce2b237).
-I've only made a few modifications on the way the captured bits are processed and to support Two's Complement, which it didn't.
+This repository has utilized a number of different libraries in an attempt to gather many sensor inputs and display them at an appropriate sampling rate in order to accurately display the change in weight distribution during the golf swing. The intent is to display the user's shift in center of gravity throughout the duration of the swing as an instruction tool accompanied by examples of trained professionals.
 
-Update: 25/02/2021
-----
-For the past years I haven't been able to maintain this library because I had too much workload. Now I'm back and I've been working on a few fixes and modifications to simplify this library, and I might be commiting the branch by mid-March. I will also publish it to PIP.
+After successfully utilizing an arduino to read digital signals from four separate load cells attached through HX711 amplifiers, the UT Golf Swing Trainer 2022/2023 team attempted to use the RPi.GPio libraries. This was successful in reading all sensor values, however, the sampling rate was far too slow to give an accurate representation of each variation in weight. 
 
-Instructions
+Next, the team was successful in increasing the reading frequency by using the pigpio libraries implemented in C using python wrappers. However, it introduced a multitude of issues reading all four sensors simultaneously. Therefore, the UTK team began to collect the reading using an arduino and do the post-processing with a raspberry pi. 
+
+The user interface is implemented with PyQt5
+
+Installation
 ------------
 The source code can be found in src/main.py
 
@@ -57,8 +56,6 @@ Other dependencies include:
  - Git
  - pigpio
 
-Installation
-------------
 1. Clone or download and unpack this repository
 2. In the repository directory, run
 ```
@@ -82,15 +79,3 @@ Ensure you are running the program with python3 as python also comes installed o
 ```
 python3 src/main.py
 ```
-
-Using a 2-channel HX711 module
-------------------------------
-Channel A has selectable gain of 128 or 64.  Using set_gain(128) or set_gain(64)
-selects channel A with the specified gain.
-
-Using set_gain(32) selects channel B at the fixed gain of 32.  The tare_B(),
-get_value_B() and get_weight_B() functions do this for you.
-
-This info was obtained from an HX711 datasheet located at
-https://cdn.sparkfun.com/datasheets/Sensors/ForceFlex/hx711_english.pdf
-

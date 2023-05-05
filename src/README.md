@@ -1,6 +1,6 @@
 # Raspberry Pi
 
-The 2022-2023 SwingTrainer team has elected to utilize a Raspberry Pi to be the internal computer for the distribution deck. 
+The 2022-2023 SwingTrainer team has elected to utilize a Raspberry Pi to be the internal computer for the weight distribution deck. 
 
 ## Setup and use
 
