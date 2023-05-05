@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import pandas as pd
 import PySimpleGUI as sg
+import time
 
 def main(): 
     app =QApplication([]) # create a window
@@ -15,22 +16,28 @@ def main():
 
     W = 1800 # Setting Window Dimensions 
     H = 900
-    window.setFixedHeight(H)
-    window.setFixedWidth(W)
-    window.setStyleSheet("background-color: black;")
+    window.setStyleSheet("background-color: grey;")
+
+    swingimage = QImage("swing.png")
+    swing = swingimage.scaled(QSize(10000,1000))
+    swing = QLabel(window) # just trying to block this freaking image 
+    swing.show()
+    swing.move(int(W/2.6),int(.2*H))
+    swing.resize(340,400)
+    swing.setStyleSheet("color:white;background-color:none; background-image: url(swing);")
 
     title = QLabel(window) # Title 
     title.setText("Level Swing")
     title.show()
-    title.move(0, int(.3*H))
+    title.move(int(W/2.8), int(.3*H))
     title.setFont(QFont('Times',70))
-    title.resize(int(W),int(H/3))
-    title.setStyleSheet("color:white;background-color:black")
+    title.resize(int(W/3),int(H/3))
+    title.setStyleSheet("color:white;background-color:none;")
     title.setAlignment(QtCore.Qt.AlignCenter)
 
     # run button
     runButton = QPushButton(window)
-    runButton.setText("Press to See Weight Shift")
+    runButton.setText("Press to Record Weight Shift")
     runButton.setStyleSheet("""
         QPushButton {
             background-color: orange; 
@@ -44,7 +51,7 @@ def main():
         background-color:blue;
         }
     """)
-    runButton.setGeometry(int(.31*W),int(.6*H),720,60)
+    runButton.setGeometry(int(.31*W),int(.6*H),740,60)
     runButton.setFont(QFont('Arial',30))
     runButton.clicked.connect(record_weight_shift)
     #runButton.animateClick(200)
@@ -91,6 +98,7 @@ def main():
     app.exec_()
 
 def record_weight_shift(window):
+    time.sleep(3)
     while True:
         # End program if user closes window or
         # presses the OK button
@@ -107,8 +115,8 @@ def record_weight_shift(window):
         RHLP = [50, 50, 60, 80, 75, 40, 15, 5, 5]
 
         # THESE ARE OPTIONAL FOOTPRINT IMAGES FOR THE BACKGROUND OF OUR PLOT`
-        #img = plt.imread("LFP.jpg")
-        #img2 = plt.imread("RFP.jpg")
+        img = plt.imread("LFP.jpg")
+        img2 = plt.imread("RFP.jpg")
 
         # HERE WE ARE DEFINING AN ANIMATE FUNCTION. THIS ALLOWS US TO WATCH THE PLOT CHANGE IN REAL TIME
 
@@ -191,8 +199,8 @@ def record_weight_shift(window):
             # BELOW I AM BASICALLY PLOTTING OUR ARROWS  AND BACKGROUND ON TOP OF THE PLOT I MADE ABOVE
 
         plt.cla()  # formatting
-            #plt.imshow(img, extent=[-.4, -.15, -.2, .2])  # puts image in background of plot
-            #plt.imshow(img2, extent=[.15, .4, -.2, .2])  # puts image in background of plot
+        plt.imshow(img, extent=[-.4, -.15, -.2, .2])  # puts image in background of plot
+        plt.imshow(img2, extent=[.15, .4, -.2, .2])  # puts image in background of plot
         plt.scatter(x, y, label="You")
         plt.plot(x, y)
         plt.scatter(xP, yP, label="Average Pro")
