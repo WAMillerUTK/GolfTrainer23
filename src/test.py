@@ -10,6 +10,8 @@ import pandas as pd
 import PySimpleGUI as sg
 import time
 
+#Home Sreen
+
 def main(): 
     app =QApplication([]) # create a window
     window = QWidget()
