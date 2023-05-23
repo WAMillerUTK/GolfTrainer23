@@ -7,7 +7,7 @@ Implementation: The team has elected to design their own weight distribution sen
 
 The 'User' will be the Pro giving the lesson and is intended to be used as a tool to shed light on undesirable habits in beginner golfers.
 
-The raspberry pi interface runs off the hx711 amplifier and accompanied software for use with the raspberry pi that can be downloaded [here](https://github.com/endail/hx711). (All four repository instances are currently in the "sensors" folder of this repository)
+The raspberry pi interface runs off the hx711 amplifier and accompanied software for use with the raspberry pi that can be downloaded [here](https://github.com/endail/hx711). (All four repository instances are currently in the "sensors" folder of this repository, upon cloning this repository, those folders will need to be re-cloned from the original repository)
 
 ```
 git clone https://github.com/endail/hx711
@@ -85,7 +85,9 @@ If you are compiling the executable for the C++ code, you will need to compile w
 TODO
 ----------
 
-At the current moment, each sensor can be read individually with it's own respective shell and the user interface is written in a bare-bones fashion. There are a number of things that must be implemented in order to have a fully functioning balance board. (The pigpiod.py script currently only implements the user interface with an older library. Therefore, it should only be used as a GUI template, each C++ file is within it's sensors/hx711 directory)
+Note: If you are the student who has been tasked with continuing this project, I highly recommend learning basic [Linux/Unix](https://www.geeksforgeeks.org/basic-linux-commands/) commands and git. I have a git introductory powerpoint that can get you started, but using these tools are the best way to learn and the only way you will progress in this project. I was successful in getting close to finishing, but did not have the man hours to complete it. I will briefly describe what there is left to implement.
+
+At the current moment, each sensor can be read individually with it's own respective shell and the user interface is written in a bare-bones fashion. There are a number of things that must be implemented in order to have a fully functioning balance board. (The pigpiod.py script currently only implements the user interface with an older library. Therefore, it should only be used as a GUI template, each C++ file is within it's sensors/hx711 directory, but will require to be re-cloned since it is a git "subdirectory")
 
 1: Implement a shell script that writes to individual files, this should be able to be run on a button press within the GUI
 
@@ -100,3 +102,8 @@ Then, it will be ideal to convert/compile the data into a medium that is useful 
 3: Implement a method that can save the gif or other medium to a desired file name
 
 This should be implemented into the user interface by a button that can bring up a text box that the user can then enter a desired file name. If the user does not decide to save that iteration, it should be discarded to not waste memory. If the user decides to save the file, it should be directed somewhere other than a "tmp" folder. The user should be able to pull up older files for reference/demonstration.
+
+Additional notes:
+-----------------
+
+I understand that much of what is left to do is writing not-so-straightforward C++ code and shell scripting. I apologize that this is a tall order for a group of mechanical engineers as this is largely a computer science/electrical engineering problem. For those who are up to the challenge will certainly learn skills that will help them going forth in their careers as engineers. The computer skills required for this project are not negligble, the use of the shell, linux, raspberry pi and git will certainly become useful later in life if you care to recognize it. My point, is this was not exactly how I intended for the legacy of this project to go either, as I myself am a mechanical engineer that happens to have computer science experience.  
