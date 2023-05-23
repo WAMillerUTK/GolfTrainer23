@@ -1,5 +1,5 @@
 # READ ME
-The various hx711 folders in this directory should be replaced with clones of the endail repository. I have extracted one of the SimpleHX711Test.cpp files for reference. I slightly modified the file to be encoded to a specific GPio pin.
+The various hx711 folders in this directory should be replaced with clones of the endail repository. I have extracted one of the SimpleHX711Test.cpp files for reference. I slightly modified the file to be hard coded to a specific GPio pin and reference unit.
 
 TODO
 ----------
