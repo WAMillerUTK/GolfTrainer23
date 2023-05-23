@@ -7,10 +7,10 @@ Implementation: The team has elected to design their own weight distribution sen
 
 The 'User' will be the Pro giving the lesson and is intended to be used as a tool to shed light on undesirable habits in beginner golfers.
 
-The raspberry pi interface runs off the hx711 amplifier and accompanied software for use with the raspberry pi that can be downloaded [here](https://github.com/tatobari/hx711py) or by cloning this repository.
+The raspberry pi interface runs off the hx711 amplifier and accompanied software for use with the raspberry pi that can be downloaded [here](https://github.com/endail/hx711). (All four repository instances are currently in the "sensors" folder of this repository)
 
 ```
-git clone https://github.com/tatobari/hx711py
+git clone https://github.com/endail/hx711
 ```
 
 ## Advisor
@@ -42,6 +42,8 @@ After successfully utilizing an arduino to read digital signals from four separa
 
 Next, the team was successful in increasing the reading frequency by using the pigpio libraries implemented in C using python wrappers. However, it introduced a multitude of issues reading all four sensors simultaneously. Therefore, the UTK team began to collect the reading using an arduino and do the post-processing with a raspberry pi. 
 
+The team was advised to then utilize the endail/hx711 libraries in C. This was successful in quickly reading all four input readings individually and by running four different shells simulatenously with different files could read all four sensors in parallel. By this time it was the end of the year and there was no more time to finish working out the rest of the kinks associated with the project. What is left to implement is detailed below.
+
 The user interface is implemented with PyQt5
 
 Installation
@@ -54,7 +56,7 @@ Other dependencies include:
  - PyQt5 (included in python3 installation)
  - RPi.GPIO
  - Git
- - pigpio
+ - make
 
 1. Clone or download and unpack this repository
 2. In the repository directory, run
@@ -66,16 +68,35 @@ If you are having an issue with permission,
 sudo python3 src/setup.py install
 ```
 
+For the hx711 repositories, you will need to create separate instances of the directory and name them for easy identification. Modify each src/SimpleHX711Test.cpp file to designate your desired GPio pins.
+
 Compilation
 -----------
-If running through the command line, you will need to first initiate the [pigpio](http://abyz.me.uk/rpi/pigpio/) daemon with the following command.
-
-```
-sudo pigpiod
-```
 
 Ensure you are running the program with python3 as python also comes installed on a raspberry pi, but will not work with our software. Therefore, pip3 will be used to install dependencies.
-
 ```
 python3 src/main.py
 ```
+If you are compiling the executable for the C++ code, you will need to compile with make and run the executable associated. To run in parallel, open multiple shell instances and run the respective directories' executable.
+
+```
+./bin/simplehx711test
+```
+TODO
+----------
+
+At the current moment, each sensor can be read individually with it's own respective shell and the user interface is written in a bare-bones fashion. There are a number of things that must be implemented in order to have a fully functioning balance board. The main python script currently only implements the user interface with an older library. Therefore, it should only be used as a GUI template.
+
+1: Implement a shell script that writes to individual files
+
+Write a shell script that will open all four shells and run the executable from within the main python script. Instruct each program to write to it's own individual temporary file. After all four individual files are written to (ideally within the same tmp directory), compile all four data files to one which can then be read by the main python script and processed for visualization. 
+
+2: Convert the raw data file to a gif or other visualization medium
+
+The raw data file will need to be manipulated with the associated math formulas to find the user's center of gravity. I recommend manipulating the data so that no values will "fall off" the sides of the "graph".
+
+Then, it will be ideal to convert/compile the data into a medium that is useful for visualization and replaying. 
+
+3: Implement a method that can save the gif or other medium to a desired file name
+
+This should be implemented into the user interface by a button that can bring up a text box that the user can then enter a desired file name. If the user does not decide to save that iteration, it should be discarded to not waste memory. If the user decides to save the file, it should be directed somewhere other than a "tmp" folder. The user should be able to pull up older files for reference/demonstration.
