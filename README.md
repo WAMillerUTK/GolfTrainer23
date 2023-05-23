@@ -85,9 +85,9 @@ If you are compiling the executable for the C++ code, you will need to compile w
 TODO
 ----------
 
-At the current moment, each sensor can be read individually with it's own respective shell and the user interface is written in a bare-bones fashion. There are a number of things that must be implemented in order to have a fully functioning balance board. The main python script currently only implements the user interface with an older library. Therefore, it should only be used as a GUI template.
+At the current moment, each sensor can be read individually with it's own respective shell and the user interface is written in a bare-bones fashion. There are a number of things that must be implemented in order to have a fully functioning balance board. (The pigpiod.py script currently only implements the user interface with an older library. Therefore, it should only be used as a GUI template, each C++ file is within it's sensors/hx711 directory)
 
-1: Implement a shell script that writes to individual files
+1: Implement a shell script that writes to individual files, this should be able to be run on a button press within the GUI
 
 Write a shell script that will open all four shells and run the executable from within the main python script. Instruct each program to write to it's own individual temporary file. After all four individual files are written to (ideally within the same tmp directory), compile all four data files to one which can then be read by the main python script and processed for visualization. 
 
