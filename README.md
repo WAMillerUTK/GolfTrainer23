@@ -17,7 +17,7 @@ git clone https://github.com/endail/hx711
 
 Dr. William Miller
 
-## Members
+## Members (2023)
 
 Christian White
 
@@ -27,13 +27,16 @@ Job Dooley
 
 Chilo Espinoza
 
-[Will Buziak](https://github.com/wbuz24/Undergrad-Repo/blob/master/S23/will-buziak-resume.pdf)
+[Will Buziak](https://github.com/wbuz24)
 
 ## Sponsor
 [Fairways and Greens](https://fairwaysandgreens.com/)
 
 
 ## HX711 for Raspberry Py
+
+For information regarding the continuation of this project, please refer to the [sensors/README.md](https://github.com/WAMillerUTK/GolfTrainer23/tree/main/sensors)
+
 ----
 
 This repository has utilized a number of different libraries in an attempt to gather many sensor inputs and display them at an appropriate sampling rate in order to accurately display the change in weight distribution during the golf swing. The intent is to display the user's shift in center of gravity throughout the duration of the swing as an instruction tool accompanied by examples of trained professionals.
