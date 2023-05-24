@@ -21,4 +21,15 @@ Gather your materials for setting up your raspberry pi
  - Raspberry Pi hdmi connector
  - microSD with Raspbian OS
  
+ ## Pull your desired hx711 repository
+ 
+ You will need to pull your desired hx711 repository and use it's provided code, assuming you do not want to write your own GPio sensor library, in which case, please reach out to me because I would like to know what you do. 
+ 
+ This is a reminder that I have extracted the hx711/src/SimpleHX711Test.cpp file from the repository to show you the adjustments I hard coded into the file, the file structure that I used is in the [sensors directory](https://github.com/WAMillerUTK/GolfTrainer23/tree/main/sensors). But those will need to be re-cloned from the [source directory](https://github.com/endail/hx711).
 
+If you are looking for a place to start
+-------
+
+I recommend you get sensors reading through a button press on your Graphical User Interface and then get each individual sensor's designated C++ file to write to it's own tmp/ file.
+
+Next, refer [here](https://github.com/WAMillerUTK/GolfTrainer23/tree/main/sensors).
