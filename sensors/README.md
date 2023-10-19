@@ -1,13 +1,22 @@
 # READ ME
-The various "hx711" folders in this directory should be replaced with clones of the [endail](https://github.com/endail/hx711) repository (or whichever sensor repository you choose). I have extracted one of the SimpleHX711Test.cpp files for reference. I slightly modified the file to be hard coded to a specific GPio pin and reference unit.
+The various "hx711" folders in this directory should be replaced with clones of the [endail](https://github.com/endail/hx711) repository (or whichever sensor repository you choose). I have extracted one of the [SimpleHX711Test.cpp](https://github.com/WAMillerUTK/GolfTrainer23/blob/main/src/SimpleHX711Test.cpp) files for reference and slightly modified the file to be hard coded to a specific GPio pin and reference unit.
 
 
 Note: 
 -------
 
-If you are the student who has been tasked with continuing this project, I highly recommend learning basic [Linux/Unix](https://www.geeksforgeeks.org/basic-linux-commands/) commands and git. I have a git introductory powerpoint that can get you started, but using these tools are the best way to learn and the only way you will progress in this project. I was successful in getting close to finishing, but did not have the man hours to complete it. I will briefly describe what there is left to implement. (if you are a CS or EE chosen to help/finish this, please spare me the criticism for I was largely alone in this effort and did not have much time to keep good file/code structure or make much progress, but this is a potential layup from here if you can do a bit of scripting & python binding magic)
+Please understand that from this point on, this project is largely software and good programming techniques are essential.
+
+If you are the student who has been tasked with continuing this project, I highly recommend learning basic [Linux/Unix](https://www.geeksforgeeks.org/basic-linux-commands/) commands and [git](https://github.com/WAMillerUTK/GolfTrainer23/blob/main/literature/github.pdf). I was successful in getting close to finishing, but did not have the man hours to complete it. I will briefly describe what there is left to implement. 
 
 At the current moment, each sensor can be read individually with it's own respective shell and the user interface is written in a bare-bones fashion. There are a number of things that must be implemented in order to have a fully functioning balance board. (The gui-test.py script can be used as a GUI template, each sensor's C++ file is within it's sensors/hx711 directory) 
+
+The Issue:
+--------
+
+The problem to solve is reading all four values simultaneously fast enough and how to store the data efficiently. For example: printing, regardless of if it is to a file or directly to the screen, takes lots of computational time and can ruin the reading rate of the data, this can be mitigated by only printing/writing at the optimal time to balance your memroy usage and compute time.
+
+It is imperative that you keep the rate at which you are reading data in mind as well as run time of the code you are executing. This is the issue with using a language like Python as it was my experience that Python did not offer enough control over memory, nor was it fast enough reading data.
 
 TO DO
 --------
