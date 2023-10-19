@@ -13,6 +13,8 @@ The raspberry pi interface runs off the hx711 amplifier and accompanied software
 git clone https://github.com/endail/hx711
 ```
 
+Instructions on how to use [git](https://github.com/WAMillerUTK/GolfTrainer23/blob/main/literature/github.pdf)
+
 ## Advisor
 
 Dr. William Miller
