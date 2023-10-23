@@ -1,5 +1,5 @@
 # READ ME
-The various "hx711" folders in this directory should be replaced with clones of the [endail](https://github.com/endail/hx711) repository (or whichever sensor repository you choose). I have extracted one of the [SimpleHX711Test.cpp](https://github.com/WAMillerUTK/GolfTrainer23/blob/main/src/SimpleHX711Test.cpp) files for reference and slightly modified the file to be hard coded to a specific GPio pin and reference unit.
+The various "hx711" folders in this directory should be replaced with clones of the [endail](https://github.com/endail/hx711) repository (or whichever sensor repository you choose). I have extracted one of the [SimpleHX711Test.cpp](https://github.com/WAMillerUTK/GolfTrainer23/blob/main/src/SimpleHX711Test.cpp) files for reference and slightly modified the file to be hard coded to a specific GPio pin and reference unit. Re-clone the hx711 repository and replace the SimpleHX711Test.cpp file fouind in the [src](https://github.com/WAMillerUTK/GolfTrainer23/tree/main/src) folder.
 
 
 Note: 
@@ -21,6 +21,8 @@ It is imperative that you keep the rate at which you are reading data in mind as
 TO DO
 --------
 
+Using the implementation I have been building on, you can proceed by:
+
 1: Implement a shell script that writes to individual files, this should be able to be run on a button press within the GUI
 
 Write a shell script that will open all four shells and run the executable from within the main python script. Instruct each program to write to it's own individual temporary file. After all four individual files are written to (ideally within the same tmp directory), compile all four data files to one which can then be read by the main python script and processed for visualization. 
@@ -38,4 +40,6 @@ This should be implemented into the user interface by a button that can bring up
 Additional notes:
 -----------------
 
-I understand that much of what is left to do is writing not-so-straightforward C++ code and shell scripting. I apologize that this is a tall order for a group of mechanical engineers as this is largely a computer science/electrical engineering problem . I certainly would have maintained a cleaner structure to what I was working on, but I did not expect to pass this work on to anybody and I am aware that this is outside of the breadth of the typical mechanical coursework, on top of that you are now tasked with piecing together what I have left, for that I apologize. Best of luck to you in your endeavor to fix the mess that I have created. 
+You are welcome to try using python, but I found the speed to be insufficient and with a lack of experience with python data structures and difficulty managing memory in python, I was incapable of reading data simulataneously or even close to an appropriate speed.
+
+I understand that much of what is left to do is writing not-so-straightforward C++ code and shell scripting. I apologize that this is a tall order for a group of mechanical engineers as this is largely a computer science/electrical engineering problem . I certainly would have maintained a cleaner structure to what I was working on, but I did not expect to pass this work on to anybody and I am aware that this is outside of the breadth of the typical mechanical coursework, therefore, smart use of data structures and awareness of your clock cycles and runtime will be important. Best of luck. 
